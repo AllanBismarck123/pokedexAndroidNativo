@@ -1,0 +1,6 @@
+package br.com.projects.pokedex_android.domain
+
+data class PokemonType(
+    val name: String,
+)
+
