@@ -1,12 +1,21 @@
 package br.com.projects.pokedex_android.domain
 
+import java.util.*
+
 data class Pokemon (
-    val imageUrl: String? = null,
-    val number: Int? = null,
+    val number: Int,
     val name:String,
-    val url: String,
-    val types: List<PokemonType>? = null
+    val types: List<PokemonType>
 ) {
+    val formattedName = name.replaceFirstChar {
+        if (it.isLowerCase())
+            it.titlecase(Locale.getDefault())
+        else
+            it.toString()
+    }
+
     val formattedNumber = number.toString().padStart(3, '0')
+
+    val imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/$formattedNumber.png"
 }
 
